@@ -1,7 +1,3 @@
-<?php
-$url_base = 'http://localhost/Walweb/views/';
-?>
-
 <!-- menu -->
 <header>
         <!-- menu -->

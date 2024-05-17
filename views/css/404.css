@@ -1,0 +1,26 @@
+@import url('./variables.css');
+*{
+    margin: 0;
+}
+.full-box{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.img_404{
+    width: 450px;
+    height: 450px;
+}
+.ct1 h1, p{
+    font-family: var(--font-decoration);
+}
+h1{
+    font-size: 3.1rem;
+}
+p{
+    font-size: 1.4rem;
+}

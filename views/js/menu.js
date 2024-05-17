@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // const urlDestino = this.getAttribute('href'); descomentar esto para activar el funcionamiento del menu
 
             // Redirigimos a la nueva página
-            window.location.href = urlDestino;
+           // window.location.href = urlDestino;
         })
     }));
     
