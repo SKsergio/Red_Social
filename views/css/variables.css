@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Comfortaa:wght@300..700&family=Jersey+15&family=Shadows+Into+Light&display=swap');
+:root{
+    /* colores originales */ 
+    --color-primary:#2da591a9 14%;
+    --color-secundary:#2417b2d2;
+    --color-third: #873ED0;
+    --color-cero: #1FAFDA;
+    --color-green:#8BD936;
+
+    /* variantes */
+    --color-primary-variante1: #2da591;
+    --color-backgound: rgb(222, 190, 252);
+    --color-header-back: rgb(120, 103, 136) ;
+    
+
+    /* mezclas */
+    --color-fourth: linear-gradient(315deg, #4dc668 14%, #295c86 45%, #8e1e83 82%);
+    
+    /* letras */
+    --font-decoration: "Shadows Into Light", cursive;
+    --font--body: "Cabin", sans-serif;
+    --font--title: "Comfortaa", sans-serif;
+    --font-pth:"Jersey 15", sans-serif;
+}
