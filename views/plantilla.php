@@ -8,17 +8,37 @@
     <?php include ('./views/templates/links.php')?>
 </head>
 <body>
+    <header>
+        <?php
+        $peticion_Ajax = false;
+        require_once './controller/VistaControlador.php';
+        $IV = new VistaControlador();
 
-    <!-- incluimos el menu -->
-    <?php include ('./views/templates/header.php')?>
+        $vista = $IV->Obtener_vistas_Controlador();
+        ?>
+        
+        <?php if ($vista != 'login' && $vista != '404') { ?>
+            <!-- incluimos el menu -->
+            <?php include ('./views/templates/header.php');?>
+        <?php } ?>
+    </header>
 
-    <!-- Contenido -->
-
+    <!-- cuerpo -->
+    <main>
+        <?php
+        if ($vista == 'login' || $vista == '404') {
+            require_once './views/content/'.$vista.'-view.php';
+        }else {
+            include $vista;
+        }
+        ?>
+    </main>
+    <!-- fin del body -->
+    
     <!-- incluimos el footer -->
-    <?php include('./views/templates/footer.php')?>
+    <?php include('./views/templates/footer.php'); ?>
 
     <!-- incluimos los scripts js -->
-    <?php include('./views/templates/scripts.php');?>
-
+    <?php include('./views/templates/scripts.php'); ?>
 </body>
 </html>

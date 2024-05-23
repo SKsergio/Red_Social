@@ -2,6 +2,7 @@
 
 body{
     display: grid;
+    gap: 70px;
     background: var(--color-backgound);
     grid-template-areas: "header header header"
     "main main main"

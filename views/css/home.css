@@ -1,0 +1,141 @@
+/* contenedor principal del home */
+.content_home{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: minmax(150px,350px) 1fr;
+    gap: 25px;
+}
+/* contenedor de las publicaciones */
+.publications__container{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+/* todo el disenio de el contenido de las publicaciones */
+.publications{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(172, 172, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+/* cabecera de la publicacion */
+.header_publications{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 10px;
+    width: 90%;
+    margin: 0 auto;
+    gap: 30px;
+}
+/* imagen */
+.profile_image_home{
+    width: 37px;
+    height: 37px;
+    background-image: url(./img/profile_example.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+.image_publications{
+    width: 300px;
+    height: 400px;
+    background-image: url(./img//profile_example.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.5) 16px 14px 20px;
+}
+/* mensaje */
+.message__publication{
+    width: 78%;
+    margin: 0 auto;
+}
+/* reacciones */
+.reactions{
+    left: 30px;
+    bottom: 0;
+    width: 90%;
+}
+
+/* pruebas */
+.information__section__home{
+    background-color: gray;
+}
+.blank__part{
+    background-color: brown;
+}
+
+.content_central_home{
+    background-color: darkcyan;
+}
+.reactions1, .reactions2{
+    width: 35px;
+    height: 35px;
+    transition: all .6s ease;
+    cursor: pointer;
+}
+.reactions1:hover, .reactions2:hover{
+    transform: scale(1.2);
+}
+
+/* disenio de las historias */
+/* contedor principal */
+.histories__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: center;
+    height: 310px;
+}
+.histories_home{
+    width: 100%;
+    height: 100%;
+}
+.content__box{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.galery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.img-history{
+    width: 100px;
+    height: 300px;
+    background-image: url(./img/unnamed.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 10px;
+    border-radius: 20px;
+    position: relative;
+    transition: width 1s;
+}
+.img-history:hover {
+    width: 225px;
+    cursor: pointer;
+}
+.img-history h3{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5em;
+    font-weight: lighter;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.9s;
+}
+.img-history:hover h3{
+    opacity: 1;
+    bottom: 8px;
+}
