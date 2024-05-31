@@ -15,6 +15,7 @@
 
     /* mezclas */
     --color-fourth: linear-gradient(315deg, #4dc668 14%, #295c86 45%, #8e1e83 82%);
+    --background-publications: linear-gradient(315deg, #E0BAF2 11%, #bb92cd 33%, #E0BAF2 60%, #a47eb6 88%);
     
     /* letras */
     --font-decoration: "Shadows Into Light", cursive;
