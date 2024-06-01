@@ -156,7 +156,11 @@
     color: white;
     font-size: 17px;
     box-shadow: rgba(0, 0, 0, 0.5) 16px 14px 20px;
-    margin-bottom: 18px;
+    margin-bottom: 35px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #loginBtn:hover{
     box-shadow: rgba(113, 53, 148, 0.5) 16px 14px 20px;

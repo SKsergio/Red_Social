@@ -32,13 +32,13 @@
                     
                     <div class="butons">
 
-                        <button id="loginBtn">Log in</button>
+                        <input type="submit" id="loginBtn" value="Login">
                         
                         <div class="forg">
                             <a id="forgotPassword" href="#">Forgotten password?</a>
                         </div>
 
-                        <button class="create" id="createAccountBtn">Create new account</button>
+                        <a class="create" id="createAccountBtn" href="<?php echo URL_BASE;?>formUser1/">Create new account</a>
 
                         
                     </div>

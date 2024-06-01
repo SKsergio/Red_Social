@@ -8,7 +8,7 @@
         <ul class="nav__menu">
 
             <li class="nav_item">
-                <a href="#" class="nav_link">
+                <a href="<?php echo URL_BASE;?>home/" class="nav_link">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li class="nav_item">
-                <a href="#" class="nav_link ">
+                <a href="<?php echo URL_BASE;?>profile/" class="nav_link ">
                     <span class="icon">
                         <ion-icon name="person-outline"></ion-icon>
                     </span>

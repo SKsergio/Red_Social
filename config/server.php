@@ -2,7 +2,7 @@
 
 //conexion a la base de datos por PDO
 const SERVER = 'localhost';
-const BD = 'Walweb';
+const BD = 'walweb';
 const user = 'root';
 const password = '';
 

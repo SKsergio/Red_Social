@@ -2,7 +2,7 @@
     <!-- contenedor de las historias -->
     <div class="histories__container">
 
-        <section class="histories_home">
+        <!-- <section class="histories_home">
             <div class="content__box">
                 <div class="galery">
                     <div class="img-history" data-classname="historie" ><h3>Nombre</h3></div>
@@ -10,8 +10,8 @@
                     <div class="img-history" data-classname="historie" ><h3>Nombre</h3></div>
                 </div>
             </div>
-        </section>
-
+        </section> -->
+    <!-- para futuras actualizaciones meteremos estados o historias de las personas, este codigo quedara aca por eso. -->
         
     </div>
     <!-- contenedor de las publicaciones -->
