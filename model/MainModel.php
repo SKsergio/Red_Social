@@ -77,5 +77,6 @@ class MainModel{
         return $cadena;
     }
     // faltan validaciones de la creacion de usuarios
+    
 
 }

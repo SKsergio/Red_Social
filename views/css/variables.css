@@ -15,7 +15,9 @@
 
     /* mezclas */
     --color-fourth: linear-gradient(315deg, #4dc668 14%, #295c86 45%, #8e1e83 82%);
-    --background-publications: linear-gradient(315deg, #E0BAF2 11%, #bb92cd 33%, #E0BAF2 60%, #a47eb6 88%);
+    --background-publications: linear-gradient(315deg, #3d8d9b 11%, #4c998c 33%, #418c8f 60%, #299c76 88%);
+    --profile-content:linear-gradient(45deg, #418a99 11%, #3b8491 33%, #438296 60%, #245f69 88%);
+    --prifile-content_publication:linear-gradient(167deg, #bad2ce 11%, #69b4a8 33%, #94c9c0 60%, #becdcb 88%);
     
     /* letras */
     --font-decoration: "Shadows Into Light", cursive;

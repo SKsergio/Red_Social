@@ -32,7 +32,7 @@
                     
                     <div class="butons">
 
-                        <input type="submit" id="loginBtn" value="Login">
+                        <input type="submit" id="loginBtn" value="Login" class="LOGBTN">
                         
                         <div class="forg">
                             <a id="forgotPassword" href="#">Forgotten password?</a>

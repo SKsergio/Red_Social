@@ -142,7 +142,6 @@
     transition: all .6s ease;
 }
 #loginBtn{
-    background: var(--color-third);
     border: none;
     border-radius: 12px;
     color: white;
@@ -161,6 +160,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.LOGBTN{
+    background: var(--color-third);
 }
 #loginBtn:hover{
     box-shadow: rgba(113, 53, 148, 0.5) 16px 14px 20px;

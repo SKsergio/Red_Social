@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="nav_item">
-                <a href="#" class="nav_link">
+                <a href="<?php echo URL_BASE;?>mensajeria/" class="nav_link">
                     <span class="icon">
                         <ion-icon name="send-outline"></ion-icon>
                     </span>
