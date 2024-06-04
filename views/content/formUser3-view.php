@@ -8,7 +8,7 @@
                 <div class="input-group">
                     <input type="text" id="usuario" name="usuario" placeholder=" ">
                     <label for="usuario">Usuario</label>
-                    <span class="error-message" id="error-usuario"></span>
+                    <span id="error-usuario"></span>
                 </div>
             </div>
             <div class="form-group">
@@ -18,7 +18,7 @@
                 <div class="input-group">
                     <input type="email" id="correo" name="correo" placeholder=" ">
                     <label for="correo">Correo</label>
-                    <span class="error-message" id="error-correo"></span>
+                    <span  id="error-correo"></span>
                 </div>
 
             </div>
@@ -38,10 +38,10 @@
                 <label for="confirm-password">Confirma tu contraseña</label>
                 <p>La contraseña debe ser igual a la descrita en el ítem anterior</p>
                 <div class="input-group password-group">
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder=" " required>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder=" ">
                     <label for="confirm-password">Confirmar contraseña</label>
                     <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
-                    <span class="error-message" id="error-confirm-password"></span>
+                    <span id="error-confirm-password"></span>
                 </div>
             </div>
             <div class="button-group">

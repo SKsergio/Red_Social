@@ -12,7 +12,7 @@
                         <input type="radio" name="genero" value="femenina"> Mujer
                     </label>
                 </div>
-                <span class="error-message" id="error-genero"></span>
+                <span  id="error-genero"></span>
             </div>
             <div class="form-group">
                 <label for="telefono">¿Cuál es tu número de celular?</label>

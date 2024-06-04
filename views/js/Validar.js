@@ -49,6 +49,16 @@ function calculateedad() {
     }
 }
 
+//shows password
+function togglePassword(id) {
+    const input = document.getElementById(id);
+    if (input.type === 'password') {
+        input.type = 'text';
+    } else {
+        input.type = 'password';
+    }
+}
+
 //validacion
 if (PageCurrent == '/Walweb/formUser1/') {
     newPage = 'http://localhost/Walweb/formUser2/';
@@ -92,14 +102,17 @@ function GuardarDatos(datos,$NextPage) {
     ArrayData.push(sessionStorage)
 
     //  Redirigimos a la nueva página
-    if (PageCurrent == '/Walweb/formUser1/') {
-        //window.location.href = $NextPage;
+    if (PageCurrent == '/Walweb/formUser4/') {
+        //Aca vamos a mandar todo al modelo de insercion de usuarios
         console.log(ArrayData);
     }else{
         window.location.href = $NextPage;
     }
 }
 // Ya fucniona todo, solo falta validar cada formulario para finalmente mandarlo al php
+
+let pattern =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+let contraseniapattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/
 
 function Validacion(form_validar, arrayElementos, url, datos){
     switch (form_validar) {
@@ -124,24 +137,94 @@ function Validacion(form_validar, arrayElementos, url, datos){
             }else{
                 if (edad < 18) {
                     error_fecha.textContent = 'Lo sentimos debes ser mayor de 18 años';
+                    error_fecha.style.color ='red';
                 }else{
                     error_fecha.textContent = '';
                 } 
             }
 
-            if (!error_name.textContent) {
-                console.log(edad)
+            if (!error_name.textContent && !error_apellido.textContent && !error_fecha.textContent) {
                 GuardarDatos(datos, url);
             }
             break;
+
         case Form_Sex:
-        
+            if (!arrayElementos[0].checked && !arrayElementos[1].checked) {
+                error_genero.textContent = 'Debes seleccionar un genero'
+                error_genero.style.color ='red';
+            }else{
+                error_genero.textContent = '';
+            }
+
+            if (arrayElementos[2].value ==='') {
+                error_telefono.textContent = 'Ingresa un numero de telefono';
+                error_telefono.style.color = 'red';
+            }else{
+                error_telefono.textContent = '';
+            }
+
+            if (!error_telefono.textContent && !error_genero.textContent) {
+                GuardarDatos(datos, url);
+            }
+
             break;
+        
         case Form_User:
             
-            break;
-        case Form_Photo:
+            if (arrayElementos[0].value === '') {
+                error_usuario.textContent = 'El campo de Nombre de Usuario es obligatorio';
+                error_usuario.style.color ='red';
+            }else{
+                error_usuario.textContent = '';
+            }
+
+            if (!pattern.test(arrayElementos[1].value)) {
+                error_correo.textContent = 'El correo esta incorrecto';
+                error_correo.style.color = 'red';
+            }else{
+
+                error_correo.textContent = '';
+            }
+            if (!contraseniapattern.test(arrayElementos[2].value)) {
+                error_password.textContent = 'La contraseña debe incluir letras, numeros y simbolos';
+                error_password.style.color = 'red';
+            }else{
+                error_password.textContent = '';
+            }   
+
+            //se validara que la contrase;a sean iguales
+            if (arrayElementos[2].value !== arrayElementos[3].value) {
+                error_password_Confirm.textContent = 'Las contraseñas deben coincidir';
+                error_password_Confirm.style.color = 'red';
+            }else{
+                error_password_Confirm.textContent = '';
+            }
+
+            if (!error_usuario.textContent && !error_correo.textContent && !error_password_Confirm.textContent) {
+                GuardarDatos(datos, url);
+            }
             
+            break;
+        
+        case Form_Photo:
+            if (arrayElementos[0].files.length === 0) {
+                error_foto1.textContent = 'Es obligatorio subir una foto de perfil';
+                error_foto1.style.color ='red';
+            }else{
+                error_foto1.textContent = '';
+            }
+
+            if (arrayElementos[1].files.length === 0) {
+                error_Foto2.textContent = 'Es obligacion seleccionar una foto de portada';
+                error_Foto2.style.color = 'red';
+            }else{
+                error_Foto2.textContent = '';
+            }
+
+            if (!error_foto1.textContent && !error_Foto2.textContent) {
+                GuardarDatos(datos, url);
+            }
+
             break;
         default:
             break;
