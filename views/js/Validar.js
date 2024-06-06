@@ -103,8 +103,32 @@ function GuardarDatos(datos,$NextPage) {
 
     //  Redirigimos a la nueva página
     if (PageCurrent == '/Walweb/formUser4/') {
-        //Aca vamos a mandar todo al modelo de insercion de usuarios
-        console.log(ArrayData);
+        //window.location.href = $NextPage;
+        console.log(ArrayData)
+        console.log('Datos enviados correctamente');
+
+        fetch('/Walweb/ajax/prub.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ArrayData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            if (data.message) {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }else{
         window.location.href = $NextPage;
     }

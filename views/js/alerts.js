@@ -1,8 +1,10 @@
+import {GuardarDatos, ArrayData} from "./Validar.js";
+
+console.log(ArrayData);
 //seleccionamos todos los formularios que tengamos en una misma vista
 const formularios_ajax = document.querySelectorAll(".FormularioAjax");
-const FormularioFecth = document.querySelectorAll(".FormularioFetch");
 
-//funciones para enviar por ajax
+//enviar datos por metodo POST
 function enviar_form_Ajax(e){
     e.preventDefault();
 }
