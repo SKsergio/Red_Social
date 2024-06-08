@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="perfil-details">
-                <h1>Raul Ramirez</h1>
+                <h1><?php echo $_SESSION['user_WLB']?></h1>
                 <div class="buttons">
                     <button>+ Agregar publicacion</button>
                     <button>Editar perfil</button>
@@ -43,6 +43,8 @@
         <img src="<?php echo URL_BASE;?>views/css/img/biker.jpg" alt="">
         <a href="" class="close">x</a>     
     </article>
+
+    <!-- Ya funciona el login y recuoeramos datos, solo nos queda recuperar las fotos y esas cosas -->
 
     <!-- contenedor de las publicaciones -->
     <div class="publication__profile">

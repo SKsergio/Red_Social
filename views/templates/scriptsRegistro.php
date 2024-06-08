@@ -1,0 +1,1 @@
+<script src="<?php echo URL_BASE;?>views/js/Validar.js"></script>

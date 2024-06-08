@@ -14,17 +14,17 @@
 
                 <h1>Walweb</h1>
 
-                <form class="form__login" method="post">
+                <form class="form__login" method="POST" action="">
 
                     <div class="container_inputs">
                         <div class="input__box">
-                            <input type="text" class="input_file" required id="user_gmail" name="user">
+                            <input type="text" class="input_file" required id="user_gmail" name="user_login" autocomplete="new-username">
                             <span>User</span>
                             <i></i>
                         </div>
 
                         <div class="input__box">
-                            <input type="password" class="input_file" required id="password" name="password">
+                            <input type="password" class="input_file" required id="password" name="password_login" autocomplete="new-password">
                             <span>Password</span>
                             <i></i>
                         </div>
@@ -49,3 +49,13 @@
         </secction>
     </div>  
 </div>
+
+<?php 
+if (isset($_POST['user_login']) && isset($_POST['password_login'])) {
+    require_once './controller/LoginController.php';
+
+    $ins_login = new LoginController();
+
+    echo $ins_login->IniciarSesionControlador();
+}
+?>

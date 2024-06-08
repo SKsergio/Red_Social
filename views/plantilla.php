@@ -36,7 +36,9 @@
         <?php if ($vista != 'login' && $vista != '404' && $validar != 10) { ?>
             <!-- incluimos el menu -->
             <?php include ('./views/templates/header.php');?>
-        <?php } ?>
+        <?php 
+        session_start(['name'=>'WLB']); 
+        } ?>
     </header>
 
     <!-- cuerpo -->
@@ -55,6 +57,11 @@
     <?php include('./views/templates/footer.php'); ?>
 
     <!-- incluimos los scripts js -->
-    <?php include('./views/templates/scripts.php'); ?>
+    <?php if ($validar != 10) {
+        include('./views/templates/scripts.php');
+    }else {
+        include('./views/templates/scriptsRegistro.php');
+    }
+     ?>
 </body>
 </html>
