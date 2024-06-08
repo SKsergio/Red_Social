@@ -1,6 +1,6 @@
 <div class="main">
     <div class="conat"> 
-        <form id="Form_photo" action="<?php echo URL_BASE;?>ajax/prub.php" method="POST" enctype="multipart/form-data" class="Form_photo">
+        <form id="Form_photo" action="<?php echo URL_BASE;?>ajax/UsuarioAjax.php" method="POST" enctype="multipart/form-data" class="Form_photo">
             <!-- notaaaaaaa utiliza el autocomplete=off que es para que los dformularios no se completen automaticamante -->
             <h1 class="How_Name">Selecciona una foto de Perfil</h1>
             <div class="form-group">

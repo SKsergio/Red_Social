@@ -22,15 +22,11 @@ let error_Foto2 = Cuerpo.querySelector('#error-foto_portada');
 //ruta actual
 //ruta de la pagina actual
 let PageCurrent = window.location.pathname;
-
 //nextPage
 let newPage;
-
 //aca almacenamos datos
 let ArrayData = [];
-
 let edad
-
 //validar edad
 function calculateedad() {
     let fecha = document.getElementById('fecha').value;
@@ -48,7 +44,6 @@ function calculateedad() {
         edadSpan.textContent = '';
     }
 }
-
 //shows password
 function togglePassword(id) {
     const input = document.getElementById(id);
@@ -93,7 +88,7 @@ function Formularios(form, url) {
         // GuardarDatos(datos, url);
     });
 }
-//intento de almacenar datos
+//funcion para almacenar datos(funciona jajjaja)
 function GuardarDatos(datos,$NextPage) {
     // Almacenar cada campo en sessionStorage
     for (let [key, value] of datos.entries()) {
@@ -101,18 +96,27 @@ function GuardarDatos(datos,$NextPage) {
     }
     ArrayData.push(sessionStorage)
 
+    // Crear un nuevo objeto FormData para almacenar los datos que ya teniamos y gestionarlos de una mejor manera
+    const formData = new FormData();
+
+    // Poblar el objeto FormData con los datos del array
+    ArrayData.forEach(item => {
+        Object.keys(item).forEach(key => {
+            if (key === 'foto_perfil' || key === 'foto_portada') {
+                formData.append(key, document.querySelector(`input[name="${key}"]`).files[0]);
+            } else {
+                formData.append(key, item[key]);
+            }
+        });
+    });
+
     //  Redirigimos a la nueva página
     if (PageCurrent == '/Walweb/formUser4/') {
         //window.location.href = $NextPage;
-        console.log(ArrayData)
-        console.log('Datos enviados correctamente');
 
         fetch('/Walweb/ajax/prub.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(ArrayData)
+            body: formData  // Enviar el FormData directamente
         })
         .then(response => {
             if (!response.ok) {
@@ -133,7 +137,6 @@ function GuardarDatos(datos,$NextPage) {
         window.location.href = $NextPage;
     }
 }
-// Ya fucniona todo, solo falta validar cada formulario para finalmente mandarlo al php
 
 let pattern =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
 let contraseniapattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/

@@ -5,7 +5,7 @@ class UserModel extends MainModel{
 
     //creamos un modelo para agregar Usuario
     protected static function AgregarUsuario_Modelo($datos){
-        $sql = MainModel::Conectar->prepare("INSERT INTO usuario(`user`,`password`,`correo`,`fecha_nacimiento`,`genero`,`telefono`,`apellido`,`Nombre_Real`) 
+        $sql = MainModel::Conectar()->prepare("INSERT INTO usuario(`user`,`password`,`correo`,`fecha_nacimiento`,`genero`,`telefono`,`apellido`,`Nombre_Real`) 
         VALUES(:USER, :PASS, :GMAIL, :FECHA, :GENERO, :PHONE, :LAST_NAME, :NOMBRE)");
 
         $sql->bindParam(":USER", $datos['usuario']);
@@ -13,8 +13,8 @@ class UserModel extends MainModel{
         $sql->bindParam(":GMAIL", $datos['correo']);
         $sql->bindParam(":FECHA", $datos['fecha']);
         $sql->bindParam(":GENERO", $datos['genero']);
-        $sql->bindParam(":PHONE", $datos['usuario']);
-        $sql->bindParam(":LAST_NAME", $datos['usuario']);
+        $sql->bindParam(":PHONE", $datos['telefono']);
+        $sql->bindParam(":LAST_NAME", $datos['apellido']);
         $sql->bindParam(":NOMBRE", $datos['nombre']);
 
         $sql->exeute();
