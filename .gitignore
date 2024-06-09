@@ -1,0 +1,4 @@
+# ignorear las fotos
+views/css/photos/*
+
+!views/css/photos/*

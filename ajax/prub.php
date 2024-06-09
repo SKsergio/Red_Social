@@ -17,11 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Tipo_perfil = 'ProfilePhoto';
     $Tipo_Portada = 'CoverPhoto';
 
-    $foto_perfil = file_get_contents($_FILES['foto_perfil']['tmp_name']);
-    $foto_portada = file_get_contents($_FILES['foto_portada']['tmp_name']);
-
-    $foto_perfil = addslashes($foto_perfil);
-    $foto_portada = addslashes($foto_portada);
+    $foto_perfil = isset($_FILES['foto_perfil']['name'])?$_FILES['foto_perfil']['name']:"";
+    $foto_portada = isset($_FILES['foto_portada']['name'])?$_FILES['foto_portada']['name']:"";
 
     // Validar correo
     $chek_correo = $conexion->prepare("SELECT correo FROM usuario WHERE correo = :CORREO");
@@ -73,16 +70,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ID_PERFIL = $result_id_perfil['id_perfil'];
 
 
+        $fecha_Foto = new DateTime();
+        $nombreArchivoFotoPerfil = ($foto_perfil!='')?$fecha_Foto->getTimestamp().'_'.$_FILES['foto_perfil']['name']:"";
+        $tmp_imgperfil=$_FILES['foto_perfil']['tmp_name'];
+        if ($tmp_imgperfil!= '') {
+            move_uploaded_file($tmp_imgperfil,'../views/css/photos/'.$nombreArchivoFotoPerfil);
+        }
+
+        $fecha_Foto2 = new DateTime();
+        $nombreArchivoFotoPortada = ($foto_portada!='')?$fecha_Foto2->getTimestamp().'_'.$_FILES['foto_portada']['name']:"";
+        $tmp_imgperfil=$_FILES['foto_portada']['tmp_name'];
+        if ($tmp_imgperfil!= '') {
+            move_uploaded_file($tmp_imgperfil,'../views/css/photos/'.$nombreArchivoFotoPortada);
+        }
+        
         //insertar en fotoportada, fotoperfil y fotos compartidas(funcionaaaaaaaaaaa ahhhhhhhhhhhhhhh)
         $insertar_foto_perfil = $conexion->prepare("INSERT INTO fotos_compartidas(`Id_tipo_Foto`, `Foto`, `id_perfil`) VALUES (:TIPO, :FOTO, :ID_PERFIL)");
         $insertar_foto_perfil->bindParam(":TIPO", $Tipo_perfil, PDO::PARAM_STR);
-        $insertar_foto_perfil->bindParam(":FOTO", $foto_perfil, PDO::PARAM_LOB);
+        $insertar_foto_perfil->bindParam(":FOTO", $nombreArchivoFotoPerfil);
         $insertar_foto_perfil->bindParam(":ID_PERFIL",$ID_PERFIL);
         $insertar_foto_perfil->execute();
 
         $insertar_foto_portada = $conexion->prepare("INSERT INTO fotos_compartidas(`Id_tipo_Foto`, `Foto`, `id_perfil`) VALUES (:TIPO, :FOTO, :ID_PERFIL)");
         $insertar_foto_portada->bindParam(":TIPO", $Tipo_Portada, PDO::PARAM_STR);
-        $insertar_foto_portada->bindParam(":FOTO", $foto_portada, PDO::PARAM_LOB);
+        $insertar_foto_portada->bindParam(":FOTO", $nombreArchivoFotoPortada);
         $insertar_foto_portada->bindParam(":ID_PERFIL",$ID_PERFIL);
         $insertar_foto_portada->execute(); 
 

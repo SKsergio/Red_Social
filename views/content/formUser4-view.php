@@ -5,14 +5,14 @@
             <h1 class="How_Name">Selecciona una foto de Perfil</h1>
             <div class="form-group">
                 <div class="input-group">
-                    <input type="file" name="foto_perfil" id="foto" class="doc_form">
+                    <input type="file" name="foto_perfil" id="foto" class="doc_form"  accept="image/jpeg">
                 </div>
                 <span class="error-foto_perfil" id="error-foto_perfil"></span>
             </div>
             <div class="form-group">
                 <label for="telefono">Selecciona una foto de Portada</label>
                 <div class="input-group">
-                    <input type="file" name="foto_portada" id="foto" class="doc_form">
+                    <input type="file" name="foto_portada" id="foto" class="doc_form"  accept="image/jpeg">
                 </div>
                 <span class="error-foto_portada" id="error-foto_portada"></span>
             </div>
