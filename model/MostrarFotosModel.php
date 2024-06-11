@@ -18,4 +18,8 @@ class MostarFotosModel extends MainModel {
         $response = $sql->fetch(PDO::FETCH_ASSOC);
         return $response['Foto_Portada'];
     }
+
+    protected static function EditarDatos($id){
+        
+    }
 } 

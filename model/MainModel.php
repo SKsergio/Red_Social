@@ -1,11 +1,6 @@
 <?php
 
-    if ($peticion_Ajax) {
-        require_once '../config/server.php';
-    }else {
-        require_once './config/server.php';
-    }
-
+require_once __DIR__ . '/../config/server.php';
 
 class MainModel{
 

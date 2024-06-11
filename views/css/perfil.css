@@ -1,5 +1,4 @@
 @import url(./variables.css);
-
 .profile__content{
     font-family: Arial, sans-serif;
     margin: 0 auto;
@@ -24,7 +23,7 @@
     position: relative;
     margin-top: -50px;
 }
-.perfil-picture img {
+.photo_profile{
     width: 170px;
     height: 170px;
     border-radius: 50%;
@@ -106,7 +105,7 @@
     position: absolute;
     top:40px ;
     right: 40px;
-    background: red;
+    background: rgb(73, 17, 119);
     color: #e4e6eb;
     text-decoration: none;
     width: 40px;
@@ -114,16 +113,6 @@
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
-}
-.next{
-    display: block;
-    background: red;
-    color: #e4e6eb;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    text-decoration: none;
-    text-align: center;
 }
 .perfil-details h1{
     font-family: var(--font-decoration);
@@ -133,4 +122,166 @@
 .publication__profile{
     display: grid;
     
+}
+/* editar perfil */
+.conat{
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-family: var(--font--body);
+}
+#formularioEditar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    position: absolute;
+    right: 90px;
+}
+.section-header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+#Nombre_user_content{
+    display: flex;
+    flex-direction: row;
+}
+.imagen_editar{
+    margin-top: 18px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(32 20 41 / 67%);
+    color: white;
+    right: 0;
+}
+.edit-button{
+    width: 160px;
+    height: 45px;
+    margin: 0 auto;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+#coverPreview, #perfilPreview, #publicationPreview{
+    width: 300px;
+    height: 190px;
+    width: 300px;
+    height: 190px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.showCreate_publication{
+    display: none; 
+    background-color: rgb(32 20 41 / 67%);
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+}
+.post-container{
+    background-color: #93a5cb;
+    width: 500px;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    left: 10%;
+    top: 25%;
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.post-header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+.editable {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    background-color: #f5f6f7;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    overflow-y: auto;
+}
+.editable img {
+    max-width: 100%;
+    margin-top: 5px;
+}
+.post-body input[type="file"] {
+    display: none;
+}
+.file {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #1877f2;
+    color: white;
+    font-weight: bold;
+}
+.post-footer {
+    text-align: right;
+}
+.post-footer button {
+    background-color: #42b72a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#mensaje{
+    max-width: 440px;
+    max-height: 60px;
+    min-width: 440px;
+    min-height: 60px;
+    margin: 10px 0;
+    outline-color: #207c7c;
+}
+.post-header h2{
+    font-family: var(--font-decoration);
+    font-size: 1.9rem;
+}
+.create_publication{
+    font-family: var(--font--body);
 }
