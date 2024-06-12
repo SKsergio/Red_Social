@@ -37,6 +37,7 @@ class LoginController extends LoginModel{
 
             $_SESSION['id_WLB']=$row['id_user'];
             $_SESSION['user_WLB']=$row['user'];
+            $_SESSION['Fecha_WLB']=$row['fecha_nacimiento'];
             $_SESSION['nombre_WLB']=$row['Nombre_Real'];
             $_SESSION['Apellido_WLB']=$row['apellido'];
             $_SESSION['token_WLB']=md5(uniqid(mt_rand(),true));

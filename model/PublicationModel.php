@@ -63,4 +63,15 @@ class PublicationModel extends MainModel{
 
         return $ver;
     }
+
+    //finalmente agregamos a la tabla de relacion
+    protected static function MergeTables($id_publicacion, $id_foto){
+        $conectar = MainModel::Conectar();
+        $sql = $conectar->prepare("INSERT INTO `fotos_publicaciones`(`Id_Foto_Compartida`, `Id_publicacion`) VALUES (:ID_FOTO, :ID_PUBLICACION)");
+        $sql->bindParam(":ID_FOTO",$id_foto);
+        $sql->bindParam(":ID_PUBLICACION",$id_publicacion);
+        $sql->execute();
+
+        return $sql;
+    }
 }

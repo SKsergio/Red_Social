@@ -21,6 +21,9 @@ class publicationController extends PublicationModel{
         //editamos la publicacion para agregar el id de la foto
         $PutPhotowithPost = PublicationModel::AgregarfotoAPost($insertarFoto,$insertarPost);
 
+        //insertamos en la relacion
+        $MergeTables = PublicationModel::MergeTables($insertarPost,$insertarFoto);
+
         return $PutPhotowithPost;
     }
 }

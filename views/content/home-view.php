@@ -1,3 +1,15 @@
+<?php
+$Nombre =$_SESSION['user_WLB']; 
+require_once './controller/ShowPostsController.php';
+//aca ira el controller para mostrar publicaciones
+$ins_posts = new ShowPostsController();
+
+$lista_posts = $ins_posts->EnviarArrayPost();
+// print_r($lista_posts);
+
+?>
+
+
 <div class="content_home">
     <!-- contenedor de las historias -->
     <div class="histories__container">
@@ -33,95 +45,55 @@
             </form>
         </section>
 
+       
         <div class="content_central_home">
+            <?php foreach($lista_posts as $posts){
 
-            <div class="publications">
+                if ($posts['Nombre'] == $Nombre) {
+                    $username = 'Tu';
+                    $link = "profile/";
+                }else{
+                    $username = $posts['Nombre'];
+                    $link = "friendprofile/";
 
-                <section class="header_publications">
-                    <div class="profile_image_home">
+                    //enviaremos por get el id del perfil del usuario para mostrar sus datos
+                }
+                ;?>
+                <div class="publications">
 
-                    </div>
-                    <p>Defth_Blank</p>
-                </section>
+                    <section class="header_publications">
+                        <div class="profile_image_home">
+                            <a href="<?php echo URL_BASE. $link;?>">
+                                <img class="img_prf" src="<?php echo URL_BASE.'views/css/photos/'. $posts['Foto_Perfil'];?>" alt="foto_publicacion">
+                            </a>
+                        </div>
+                        <a href="<?php echo URL_BASE. $link;?>">
+                            <p><?php echo $username;?></p>
+                        </a>
+                    </section>
 
-                <section class="image_publication__content">
-                    <div class="image_publications">
+                    <section class="image_publication__content">
+                        <div class="image_publications">
+                            <img class="img_pbl" src="<?php echo URL_BASE.'views/css/photos/'. $posts['foto_Publicacion'];?>" alt="foto_publicacion">
+                        </div>
+                    </section>
 
-                    </div>
-                </section>
+                    <section class="message__publication">
+                        <p>
+                            <?php echo $posts['mensaje'];?>
+                        </p>
+                    </section>
 
-                <section class="message__publication">
-                    <p>Este es el mensaje de la publicacion ahora es mmucho msg_stat_queue
-                        mas largo que antes
-                    </p>
-                </section>
+                    <section class="reactions">
+                        <ion-icon name="heart-outline" class="reactions1"></ion-icon>
+                        <ion-icon name="happy-outline" class="reactions2"></ion-icon>
+                    </section>
 
-                <section class="reactions">
-                    <ion-icon name="heart-outline" class="reactions1"></ion-icon>
-                    <ion-icon name="happy-outline" class="reactions2"></ion-icon>
-                </section>
-
-            </div>    
-            
-            <div class="publications">
-
-                <section class="header_publications">
-                    <div class="profile_image_home">
-
-                    </div>
-                    <p>Defth_Blank</p>
-                </section>
-
-                <section class="image_publication__content">
-                    <div class="image_publications">
-
-                    </div>
-                </section>
-
-                <section class="message__publication">
-                    <p>Este es el mensaje de la publicacion ahora es mmucho msg_stat_queue
-                        mas largo que antes
-                    </p>
-                </section>
-
-                <section class="reactions">
-                    <ion-icon name="heart-outline" class="reactions1"></ion-icon>
-                    <ion-icon name="happy-outline" class="reactions2"></ion-icon>
-                </section>
-
-            </div>
-            
-            <div class="publications">
-
-                <section class="header_publications">
-                    <div class="profile_image_home">
-
-                    </div>
-                    <p>Defth_Blank</p>
-                </section>
-
-                <section class="image_publication__content">
-                    <div class="image_publications">
-
-                    </div>
-                </section>
-
-                <section class="message__publication">
-                    <p>Este es el mensaje de la publicacion ahora es mmucho msg_stat_queue
-                        mas largo que antes
-                    </p>
-                </section>
-
-                <section class="reactions">
-                    <ion-icon name="heart-outline" class="reactions1"></ion-icon>
-                    <ion-icon name="happy-outline" class="reactions2"></ion-icon>
-                </section>
-
-            </div>
-            <!-- esto es un ejemplo de como se veran las publicaciones de los usuarios -->
+                </div>    
+                <?php } ?>  
+                <!-- esto es un ejemplo de como se veran las publicaciones de los usuarios -->
 
         </div>
-
     </div>  
     
 </div>

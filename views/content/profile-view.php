@@ -1,7 +1,9 @@
 <?php
 require_once './controller/MostrarFotosController.php';
+require_once './controller/ShowPostsController.php';
 //aca vamos a obtener las fotos de perfil para mostrarla en sus respectivos lugares
 $Nombre =$_SESSION['user_WLB']; 
+$Noun = $_SESSION['nombre_WLB'];
 
 $ins_Fotos = new MostarFotosController();
 $ArrayFotos = $ins_Fotos->ObtenerFotos($Nombre);
@@ -42,8 +44,8 @@ $ArrayFotos = $ins_Fotos->ObtenerFotos($Nombre);
         </div>
         <div class="detalles">
             <h2>Detalles</h2>
-            <p><i class="icon"></i>Nombre Real</p>
-            <p><i class="icon"></i>Cumpleaños</p>
+            <p><i class="icon"></i>Nombre Real: <?php echo $Noun;?></p>
+            <!-- <p><i class="icon"></i>Cumpleaños:</p> -->
         </div>
     </div>
 
@@ -127,7 +129,27 @@ $ArrayFotos = $ins_Fotos->ObtenerFotos($Nombre);
 
     <!-- contenedor de las publicaciones -->
     <div class="publication__profile">
-
+        <div class="posters_img">
+            <img class="img_post_ct" src="<?php echo URL_BASE.'views/css/img/'?>profile_example.jpg" alt="">
+            <p>Etse es el dsjdsjassuj ahdahva ahdvaviuahv adjsaj</p>
+        </div>
+        <div class="posters_img">
+            <img class="img_post_ct" src="<?php echo URL_BASE.'views/css/img/'?>profile_example.jpg" alt="">
+            <p>Etse es el dsjdsjassuj ahdahva ahdvaviuahv adjsaj</p>
+        </div>
+        <div class="posters_img">
+            <img class="img_post_ct" src="<?php echo URL_BASE.'views/css/img/'?>profile_example.jpg" alt="">
+            <p>Etse es el dsjdsjassuj ahdahva ahdvaviuahv adjsaj</p>
+        </div>
+        <div class="posters_img">
+            <img class="img_post_ct" src="<?php echo URL_BASE.'views/css/img/'?>profile_example.jpg" alt="">
+            <p>Etse es el dsjdsjassuj ahdahva ahdvaviuahv adjsaj</p>
+        </div>
+        <div class="posters_img">
+            <img class="img_post_ct" src="<?php echo URL_BASE.'views/css/img/'?>profile_example.jpg" alt="">
+            <p>Etse es el dsjdsjassuj ahdahva ahdvaviuahv adjsaj</p>
+        </div>
+    
     </div>
 
 </div>

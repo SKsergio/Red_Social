@@ -49,21 +49,35 @@
 }
 /* imagen */
 .profile_image_home{
-    width: 37px;
-    height: 37px;
-    background-image: url(./img/profile_example.jpg);
+    width: 40px;
+    height: 40px;
+    /* background-image: url(./img/profile_example.jpg);
     background-size: cover;
     background-position: center;
+    border-radius: 12px; */
+}
+.img_prf{
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
 }
 .image_publications{
-    width: 300px;
-    height: 400px;
-    background-image: url(./img//profile_example.jpg);
-    background-size: cover;
+    width: 350px;
+    height: 425px;
+    /* background-image: url(./img//profile_example.jpg);
+    background-size: cover; */
     background-position: center;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.5) 16px 14px 20px;
+}
+.header_publications a{
+    text-decoration: none;
+    color: black;
+}
+.img_pbl{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
 }
 /* mensaje */
 .message__publication{
