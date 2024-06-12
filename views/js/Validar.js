@@ -65,7 +65,7 @@ if (PageCurrent == '/Walweb/formUser1/') {
     newPage = 'http://localhost/Walweb/formUser4/';
     Formularios(Form_User, newPage);
 }else if(PageCurrent == '/Walweb/formUser4/'){
-    newPage = 'http://localhost/Walweb/profile/';
+    newPage = 'http://localhost/Walweb/';
     Formularios(Form_Photo, newPage);
 }
 
@@ -112,8 +112,6 @@ function GuardarDatos(datos,$NextPage) {
 
     //  Redirigimos a la nueva página
     if (PageCurrent == '/Walweb/formUser4/') {
-        //window.location.href = $NextPage;
-
         fetch('/Walweb/ajax/prub.php', {
             method: 'POST',
             body: formData  // Enviar el FormData directamente
@@ -125,14 +123,26 @@ function GuardarDatos(datos,$NextPage) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             if (data.message) {
-                alert(data.message);
+                Swal.fire({
+                    title: 'Listo',
+                    text: data.message,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar' 
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = $NextPage;
+                    }
+                });
             }
         })
         .catch(error => {
             console.error('Error:', error);
         });
+
+        sessionStorage.clear();
+        ArrayData = [];
+        formData=[];
     }else{
         window.location.href = $NextPage;
     }

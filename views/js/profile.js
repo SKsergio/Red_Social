@@ -94,6 +94,7 @@ function RecuperarDatos(form, errores){
                 }
                 // hacer envio
                 if (!errores.textContent) {
+                    console.log(ArrayInputs)
                     //enviamos a los ajax para que los datos sean procesados
                     fetch('/Walweb/ajax/EditarFotosAjax.php',{
                         method : 'POST',
@@ -121,20 +122,28 @@ function RecuperarDatos(form, errores){
                 }
                 // hacer envio
                 if (!errores.textContent) {
-                    console.log('datos del form 2 enviados correctamente')
-                    fetch('/Walweb/ajax/PublicacionesAjax.php',{
-                        method : 'POST',
-                        body : Datos
+                    fetch('/Walweb/ajax/PublicacionesAjax.php', {
+                        method: 'POST',
+                        body: Datos
                     })
-                    .then(response=> response.json())
+                    .then(response => response.json())
                     .then(data => {
-                        Swal.fire({
+                        return Swal.fire({
                             title: 'Todo correcto',
                             text: data.mensaje,
                             icon: 'success',
-                            confirmButtonText: 'Aceptar' 
-                            });
+                            confirmButtonText: 'Aceptar'
+                        });
                     })
+                    .then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'http://localhost/Walweb/profile/';
+                            form.reset(); 
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                 }   
                 break;
             default:

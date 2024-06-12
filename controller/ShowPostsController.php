@@ -10,4 +10,12 @@ class ShowPostsController extends ShowPostsModel{
 
         return $ArrayDatos;
     }
+
+    public function PosforOneProfile($Nombre){
+
+        $ArrayPost = ShowPostsModel::SetPostOnlyProfile($Nombre);
+
+        return $ArrayPost;
+
+    }
 }

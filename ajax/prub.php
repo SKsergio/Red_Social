@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $chek_USER->bindParam(":USER", $user);
     $chek_USER->execute();
 
-    if ($chek_correo->rowCount() > 0 && $chek_USER->rowCount() >0) {
+    if ($chek_correo->rowCount() > 0 || $chek_USER->rowCount() >0) {
         $response = array(
             'message' => 'El correo o el usuario que estás intentando ingresar ya existe'
         );
@@ -145,6 +145,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $AgregarDatosPerfil->bindParam(":FOTO_PERFIL",$ID_PHOTO_PROFILE);
         $AgregarDatosPerfil->bindParam(":ID_INGRESAR",$ID_PERFIL);
         $AgregarDatosPerfil->execute();
+
+        //metemos esto
+        //require_once __DIR__ . '/../model/LoginModel.php';
+
+        // class prub extends LoginModel{
+
+        //     public function IniciarSesionControlador(){
+        //         $datos_inc = [$_POST['usuario']=>$user, $_POST['password']=>$clave];
+        //         $datosCuenta = LoginModel::IniciarSesionModelo($datos_inc);
+
+        //         session_start(['name'=>'WLB']); 
+
+        //         $_SESSION['id_WLB']=$row['id_user'];
+        //         $_SESSION['user_WLB']=$row['user'];
+        //         $_SESSION['Fecha_WLB']=$row['fecha_nacimiento'];
+        //         $_SESSION['nombre_WLB']=$row['Nombre_Real'];
+        //         $_SESSION['Apellido_WLB']=$row['apellido'];
+        //         $_SESSION['token_WLB']=md5(uniqid(mt_rand(),true));
+
+        //         return URL_BASE."profile/";
+        //     }
+        // }
+        // $newPrub = new prub();
+
+        // echo $newPrub->IniciarSesionControlador();
+       
 
 
         // NOTA: SERIA DE HACER UN CAMBIO EN LA BASE DE DATOS SE ELIMINARIAN 2 TABLAS Y SE AGREGARIA EL ID_PERFIL A LA TABLA DE 
