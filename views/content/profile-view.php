@@ -93,7 +93,7 @@ $id_perfil = $id_perfilArr['id_perfil'] ;
             <div class="name-field">
                 <div class="section-header" id="Nombre_user_content">
                     <label for="username">Nombre de Usuario</label>
-                    <input type="text" name="username" value="<?php echo $Nombre?>" id="username" >
+                    <input type="text" name="username" value="<?php echo $Nombre?>" id="username" readonly>
 
                     <input type="number" name="id_perfil" value="<?php echo $id_perfil?>" readonly style="display:none;">
                 </div>

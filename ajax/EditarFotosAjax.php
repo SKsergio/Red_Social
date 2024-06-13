@@ -13,7 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] =='POST') {
         $formData[$key] = $value;
     }
 
-    $mensaje = 'Los datos han sido recibidos';
+    $ins_edit = new MostarFotosController();
+    $edit_data = $ins_edit->GestionarFotos($formData);
+
+    if ($edit_data == true) {
+        $mensaje = 'La publicacion se ha subido correctamente';
+    }else{
+        $mensaje = 'Ha ocurrido un error';
+    }
 
     $response = array(
         'mensaje' => $mensaje

@@ -102,13 +102,22 @@ function RecuperarDatos(form, errores){
                     })
                     .then(response=> response.json())
                     .then(data => {
-                        Swal.fire({
+                        return Swal.fire({
                             title: 'Todo correcto',
                             text: data.mensaje,
                             icon: 'success',
-                            confirmButtonText: 'Aceptar' 
-                            });
+                            confirmButtonText: 'Aceptar'
+                        });
                     })
+                    .then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'http://localhost/Walweb/profile/';
+                            form.reset(); 
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                 }
                 break;
 

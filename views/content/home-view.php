@@ -5,8 +5,6 @@ require_once './controller/ShowPostsController.php';
 $ins_posts = new ShowPostsController();
 
 $lista_posts = $ins_posts->EnviarArrayPost();
-// print_r($lista_posts);
-
 ?>
 
 
@@ -51,10 +49,10 @@ $lista_posts = $ins_posts->EnviarArrayPost();
 
                 if ($posts['Nombre'] == $Nombre) {
                     $username = 'Tu';
-                    $link = "profile/";
+                    $link = URL_BASE ."profile/";
                 }else{
                     $username = $posts['Nombre'];
-                    $link = "friendprofile/";
+                    $link = URL_BASE . 'friendprofile/?Nom=' . urlencode($posts['Nombre']);
 
                     //enviaremos por get el id del perfil del usuario para mostrar sus datos
                 }
@@ -63,11 +61,11 @@ $lista_posts = $ins_posts->EnviarArrayPost();
 
                     <section class="header_publications">
                         <div class="profile_image_home">
-                            <a href="<?php echo URL_BASE. $link;?>">
+                            <a href="<?php echo $link?>">
                                 <img class="img_prf" src="<?php echo URL_BASE.'views/css/photos/'. $posts['Foto_Perfil'];?>" alt="foto_publicacion">
                             </a>
                         </div>
-                        <a href="<?php echo URL_BASE. $link;?>">
+                        <a href="<?php echo $link;?>">
                             <p><?php echo $username;?></p>
                         </a>
                     </section>

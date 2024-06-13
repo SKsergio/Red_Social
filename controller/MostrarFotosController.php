@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/MostrarFotosModel.php';
 
 class MostarFotosController extends MostarFotosModel {
+
     public function ObtenerFotos($Nombre) {
         $fotoPerfil = MostarFotosModel::ObtenerFotoPerfil($Nombre);
         $fotoPortada = MostarFotosModel::ObtenerFotoPortada($Nombre);
@@ -25,12 +26,15 @@ class MostarFotosController extends MostarFotosModel {
         //ESTE ES EL ID DE LA FOTO DE PERFIL
         $id_foto_perfil = MostarFotosModel::obtenerIdFoto($Id_perfil,$Tipos[0]);
         //ESTE ES EL ID DE LA FOTO DE PORTADA
-        $id_foto_portada = MostarFotosModel::obtenerIdFoto($Id_prfil,$Tipos[1]);
-        
+        $id_foto_portada = MostarFotosModel::obtenerIdFoto($Id_perfil,$Tipos[1]);
 
+    
+        //cambiar foto perfil
+        $UpdatePerfilpicture = MostarFotosModel::EditarFotoPerfil($NewFoto_Perfil,$id_foto_perfil);
+        //cambiar foto portada
+        $UpdatePortada = MostarFotosModel::EditarFotoPortada($NewFoto_Portada,$id_foto_portada);
 
-
-
+        return true;
     }
 
 }
